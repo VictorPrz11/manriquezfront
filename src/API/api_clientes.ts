@@ -3,7 +3,41 @@ import axios from "axios";
 
 const API_URL=import.meta.env.DB_HOST || 'http://localhost:3000';
 
-export const apiCrearCliente = async (cliente:Cliente)=>{
-    const response = await axios.post(`${API_URL}/clientes`, cliente);
+//CRUD CLIENTES
+export const apiCrearCliente = async (cliente:any)=>{
+    //Crear un objeto de tipo cliente que tome los datos del formulario
+    const clienteObj: Cliente = {
+        nombres: cliente.Nombres,
+        apellido_paterno: cliente.Apellido_Paterno,
+        apellido_materno: cliente.Apellido_Materno,
+        correo: cliente.Correo,
+        celular: cliente.Celular,
+        fecha_nacimiento: cliente.Fecha_nacimiento,
+        direccion: cliente.Direccion,
+        fecha_registro: new Date().toISOString().split('T')[0],
+        activo: true
+    };
+
+    const response = await axios.post(`${API_URL}/clientes/agregarCliente`, clienteObj);
+    return response.data;
+}
+
+export const apiObtenerClientes = async ():Promise<Cliente[]>=>{
+    const response = await axios.get(`${API_URL}/clientes/obtenerTodos`);
+    return response.data;
+}
+
+export const apiObtenerClientePorId = async (id:number):Promise<Cliente>=>{
+    const response = await axios.get(`${API_URL}/clientes/obtenerClientePorId/${id}`);
+    return response.data;
+}
+
+export const apiActualizarCliente = async (id:number, cliente:Cliente)=>{
+    const response = await axios.put(`${API_URL}/clientes/actualizarCliente/${id}`, cliente);
+    return response.data;
+}
+
+export const apiEliminarCliente = async (id:number)=>{
+    const response = await axios.delete(`${API_URL}/clientes/${id}`);
     return response.data;
 }

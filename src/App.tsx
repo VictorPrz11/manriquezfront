@@ -4,6 +4,7 @@ import MenuButton from './Components/Menu_Button'
 import Home_screen from './Pages/Home_screen';
 import Clientes_screen from './Pages/Clientes_screen';
 import Costos from './Pages/Costos';
+import RegistroCliente from './Pages/Registro_cliente';
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
           <MenuButton label='HOME' isSelected={selectedButton == "HOME" ? true : false} onClick={
             () => {
               handleButtonClick("HOME")
-              
+             
             }
              
           } />
@@ -34,7 +35,7 @@ function App() {
             handleButtonClick("CLIENTES")
             
           }} />
-          <MenuButton label='COSTOS' isSelected={selectedButton == "INSCRIPCIONES" ? true : false} onClick={() => {
+          <MenuButton label='COSTOS' isSelected={selectedButton == "COSTOS" ? true : false} onClick={() => {
             handleButtonClick("COSTOS")
           }} />
 
@@ -42,7 +43,7 @@ function App() {
 
         {selectedButton === "HOME" && <Home_screen/>}
         {selectedButton === "CLIENTES" && <Clientes_screen/>}
-        {selectedButton === "COSTOS" && <Costos/>}
+        {selectedButton === "COSTOS" && <div/>}
       </div>
     </>
   )
