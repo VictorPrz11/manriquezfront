@@ -10,7 +10,7 @@ export interface Cliente{
     celular?: string;
     direccion?: string;
     fecha_registro: string;
-    activo: boolean;
+    activo?: boolean;
     
 }
 

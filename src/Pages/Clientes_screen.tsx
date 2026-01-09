@@ -14,7 +14,7 @@ const Clientes_screen = () => {
 
     useEffect(() => {
         apiObtenerClientes().then((res: any) => {
-            setPersons(res.data);
+            setPersons(res.data[0]);
         }).catch(error => {
             alert(`Error al obtener los datos de los clientes: ${error.message}`);
         });

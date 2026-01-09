@@ -7,13 +7,13 @@ const API_URL=import.meta.env.DB_HOST || 'http://localhost:3000';
 export const apiCrearCliente = async (cliente:any)=>{
     //Crear un objeto de tipo cliente que tome los datos del formulario
     const clienteObj: Cliente = {
-        nombres: cliente.Nombres,
-        apellido_paterno: cliente.Apellido_Paterno,
-        apellido_materno: cliente.Apellido_Materno,
-        correo: cliente.Correo,
-        celular: cliente.Celular,
-        fecha_nacimiento: cliente.Fecha_nacimiento,
-        direccion: cliente.Direccion,
+        nombres: cliente.nombres,
+        apellido_paterno: cliente.apellido_paterno,
+        apellido_materno: cliente.apellido_materno,
+        fecha_nacimiento: cliente.fecha_nacimiento,
+        correo: cliente.correo,
+        celular: cliente.celular,
+        direccion: cliente.direccion,
         fecha_registro: new Date().toISOString().split('T')[0],
         activo: true
     };
@@ -37,7 +37,7 @@ export const apiActualizarCliente = async (id:number, cliente:Cliente)=>{
     return response.data;
 }
 
-export const apiEliminarCliente = async (id:number)=>{
-    const response = await axios.delete(`${API_URL}/clientes/${id}`);
+export const apiEliminarCliente = async (id_cliente:number)=>{
+    const response = await axios.delete(`${API_URL}/clientes/eliminarCliente/${id_cliente}`);
     return response.data;
 }

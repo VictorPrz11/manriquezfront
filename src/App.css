@@ -62,7 +62,7 @@ button.MenuButton:active {
   margin: 80px 0px 0px 25px;
   background-color: #e5e5e5;
   border-radius: 20px;
-  height: 5%;
+  height: 6%;
   width: 85%;
 }
 .search_client_input::placeholder {
@@ -239,8 +239,7 @@ input {
   height: 100%;
 }
 .form_container input[type = "date"] {
-  background-color: white;
-  color: black;
+  color-scheme: light;
   font-size: 16px;
 
 }

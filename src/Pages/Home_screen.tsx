@@ -9,7 +9,7 @@ function Home_screen() {
     useEffect(() => {
         apiObtenerClientes().then((res: any) => {
             console.log("Clientes obtenidos para Home Screen:", res.data);
-            setPeople(res.data);
+            setPeople(res.data[0]);
         }
         ).catch(error => {
             alert(`Error al obtener los datos de los clientes para Home Screen: ${error.message}`);
